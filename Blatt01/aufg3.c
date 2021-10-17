@@ -51,6 +51,21 @@ int main() {
         printf("\n");
         i += 2;
     }
+    i = 0;
+    j = 0;
+    while(i <= (eingabe/6.0)){
+        while(j<eingabe){
+            if(eingabe-j-1 > floor(eingabe/2.0)-(eingabe/5.0) && eingabe-j < ((eingabe/2.0)+(eingabe/5.0))){
+                printf("*");
+            }else{
+                printf(" ");
+            }
+            j++;
+        }
+        printf("\n");
+        i++;
+        j=0;
+    }
 
     return EXIT_SUCCESS;
 }
