@@ -11,13 +11,13 @@ double toRadians(double degree) {
 int main() {
     int i = 0;
     printf("Aufgabe 2\n");
-    printf("--FOR-SCHLEIFE--");
+    printf("--FOR-SCHLEIFE--\n\n");
 
-    for(i = 0; i < 360; i += 10) {
+    for(i = 0; i <= 360; i += 10) {
         printf("Winkel: %u Grad => Sinus-Funktionswert: %.3f\n", i, sin(toRadians(i)));
     }
 
-    printf("--WHILE-SCHLEIFE--");
+    printf("\n--WHILE-SCHLEIFE--\n\n");
 
     i = 0;
     while(i <= 360) {
