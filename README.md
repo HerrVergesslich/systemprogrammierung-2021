@@ -1,1 +1,1 @@
-# systemprogrammierung-2021
+# Systemprogrammierung WS-2021 | PRAKTIKUM
