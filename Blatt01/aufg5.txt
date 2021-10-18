@@ -1,8 +1,0 @@
-1. x = (float)7/4; ->  float bringt nichts, da es nicht die Integer-Division beeninflusst = kommt keine Dezimalzahl raus
-2. x = (double)(7/(float)4); -> double vorher unnötig, beeninflusst Division nicht
-                             -> float castet die 4 zur Dezimalzahl = in X steht Dezimalzahl
-3. x = (double)(7/4.0); -> double vorher unnötig, beeninflusst Division nicht
-                        -> durch ".0" an der 4 wird die vier zum Double = in X steht Dezimalzahl
-4. x = (double)(7/4); -> double vorher unnötig, beeninflusst Division nicht = in X steht ganze Zahl
-5. x = (double)7/4; -> sieben wird zum double gecastet = double-Division
-6. x = (double)7.0f/4: -> ".0f" unnötig um Dezimal-Division durchzuführen, da "double" die sieben castet = double-Division  
