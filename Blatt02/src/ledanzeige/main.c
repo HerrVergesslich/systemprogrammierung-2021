@@ -1,6 +1,3 @@
-#ifndef TM1637_H 
-#define TM1637_H
-#endif
 
 void LED_Demo(){
     int i;

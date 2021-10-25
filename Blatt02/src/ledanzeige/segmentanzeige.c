@@ -1,5 +1,8 @@
 #include "ledanzeige/TM1637.h"
 #include "ledanzeige/TM1637_intern.h"
+
+#include <stdlib.h>
+#include <stdio.h>
 #include <wiringPi.h>
 
 void TM1637_write_byte(byte wr_data){
