@@ -59,6 +59,8 @@ Die Datenübertragung wird nach der For-Schleife mit `TM1637_ack()` beendet.
 
 ## LED-Demo (1P)
 
+Es soll eine kleine Demonstration der LED-Segmentanzeige implementiert werden.
+Unsere LED-Segmentanzeige zählt bis 999 hoch und springt dann wieder auf Null und fängt von vorne an. Dafür haben wir in der Datei [TM1637.c](./src/ledanzeige/TM1637.c)
 
 ## Make (1P)
 
