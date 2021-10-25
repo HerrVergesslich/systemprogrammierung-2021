@@ -18,7 +18,7 @@ $(ODIR)/%.o: %.c
 compile: $(OBJS)
 	echo "Compiling object file: $<"
 	mkdir $(ODIR)/build
-	$(CC) $(CFLAGS) $(LDLIBS) -o $(ODIR)/build/$<.o
+	$(CC) $(CFLAGS) $(LDLIBS) $^ -o $(ODIR)/build/$@.o
 
 install: all
 	echo "Kopiere ausführbare Dateien nach ./bin"
