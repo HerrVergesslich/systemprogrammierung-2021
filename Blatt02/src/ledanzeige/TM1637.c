@@ -219,7 +219,7 @@ void TM1637_display_number(float number) {
     TM1637_display(SEG4, TM1637_calculate_display(number, SEG4), OFF);
 }
 
-void TM1637_display_text(char[] text) {
+void TM1637_display_text(char* text) {
     if(sizeof(text) > 4) {
         fprintf(stderr, "The display can only show 4 chars! (%d > 4)\n", sizeof(text));
     } else {
