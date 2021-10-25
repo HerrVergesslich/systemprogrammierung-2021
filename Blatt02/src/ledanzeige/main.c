@@ -11,7 +11,7 @@ void LED_Demo(){
     for(i=0; i<999; i++){
         TM1637_display_number((float)i);
         printf("Showing: %d\n", i);
-        delayMicroseconds(1000*1000);
+        delayMicroseconds(1000*100);
     }
 }
 
