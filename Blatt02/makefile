@@ -11,8 +11,8 @@ OBJS = $(ODIR:.c=.o)
 all: build
 
 $(ODIR)/%.o: %.c
-	$(CC) -c $(CFLAGS) $^ -o $@
 	echo "Creating Object-File: $@"
+	$(CC) -c $(CFLAGS) $^ -o $@
 
 build: $(OBJS)
 	mkdir $(ODIR)/build
