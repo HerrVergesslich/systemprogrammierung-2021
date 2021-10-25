@@ -6,14 +6,14 @@
  * ============================================================================
  */
 
-#include "ledanzeige/segmentanzeige.h"
-
 #ifndef TM1637_H
 #define TM1637_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#include "ledanzeige/segmentanzeige.h"
 
 /*
  * Initialisierung von WiringPi und der Segmentanzeige.
