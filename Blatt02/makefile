@@ -15,6 +15,7 @@ $(ODIR)/%.o: %.c
 all: ledanzeige
 
 ledanzeige: $(OBJS)
+	@echo "objs: $(OBJS)"
 	@mkdir -p $(ODIR)/build
 	@echo "Compiling Files: $^"
 	$(CC) $(CFLAGS) $(LDLIBS) $^ -o $(ODIR)/build/$@
