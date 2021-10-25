@@ -1,4 +1,3 @@
-#include "ledanzeige/segmentanzeige.h"
 #include "ledanzeige/TM1637_intern.h"
 #include "ledanzeige/TM1637.h"
 
@@ -17,9 +16,11 @@ void TM1637_write_byte(byte wr_data){
 }
 
 void LED_Demo(){
+    int i;
     TM1637_setup();
-    for(int i = 0; i<20; i++){
+    for(i=0; i<20; i++){
         TM1637_display_number(i);
         delayMicroseconds(1000);
     }
 }
+
