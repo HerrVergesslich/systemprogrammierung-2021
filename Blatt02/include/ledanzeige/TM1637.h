@@ -40,6 +40,11 @@ void TM1637_clear_segment(segment seg);
  */
 void TM1637_display_number(float number);
 
+/*
+ * High-Level Funktionen zum Setzen aller Segmente.
+ * Der Parameter text ist ein char-array mit einer maximalen Länge von 4.
+ * Der Text wird von links nach rechts angezeigt.
+ */
 void TM1637_display_text(char* text);
 
 #ifdef __cplusplus

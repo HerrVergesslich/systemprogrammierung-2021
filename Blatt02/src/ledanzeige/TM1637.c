@@ -219,6 +219,10 @@ void TM1637_display_number(float number) {
     TM1637_display(SEG4, TM1637_calculate_display(number, SEG4), OFF);
 }
 
+/*
+ * Hilfsfunktion um Bitsequenz für Buchstaben zu ermitteln.
+ * Die Funktion wird in TM1637_display_text() verwendet.  
+ */
 byte TM1637_calc_char(char character) {
     int c = (int) character;
     if(c >= 48 && c <= 57) { /* 0-9 */
@@ -235,21 +239,34 @@ byte TM1637_calc_char(char character) {
     return 0x00;
 }
 
+/*
+ * High-Level Funktionen zum Setzen aller Segmente.
+ * Der Parameter text ist ein char-array mit einer maximalen Länge von 4.
+ * Der Text wird von links nach rechts angezeigt.
+ */
 void TM1637_display_text(char* text) {
     if(sizeof(text) > 4) {
         fprintf(stderr, "The display can only show 4 chars! (%d > 4)\n", sizeof(text));
     } else {
         if(sizeof(text) >= 1) {
-            TM1637_display(SEG1, TM1637_calc_char(text[0]), ON);
+            TM1637_display(SEG1, TM1637_calc_char(text[0]), OFF);
+        } else {
+            TM1637_display(SEG1, 0x00, OFF)
         }
         if(sizeof(text) >= 2) {
-            TM1637_display(SEG2, TM1637_calc_char(text[1]), ON);
+            TM1637_display(SEG2, TM1637_calc_char(text[1]), OFF);
+        } else {
+            TM1637_display(SEG2, 0x00, OFF)
         }
         if(sizeof(text) >= 3) {
-            TM1637_display(SEG3, TM1637_calc_char(text[2]), ON);
+            TM1637_display(SEG3, TM1637_calc_char(text[2]), OFF);
+        } else {
+            TM1637_display(SEG3, 0x00, OFF)
         }
         if(sizeof(text) >= 4) {
-            TM1637_display(SEG4, TM1637_calc_char(text[3]), ON);
+            TM1637_display(SEG4, TM1637_calc_char(text[3]), OFF);
+        } else {
+            TM1637_display(SEG4, 0x00, OFF)
         }
     }
 }
