@@ -9,13 +9,13 @@ LDLIBS = -lwiringPi
 SRC = $(wildcard $(ODIR)/*.c)
 OBJS = $(SRC:.c=.o)
 
-all: build
+all: compile
 
 $(ODIR)/%.o: %.c
 	echo "Creating Object-File: $@"
 	$(CC) -c $(CFLAGS) $^ -o $@
 
-build: $(OBJS)
+compile: $(OBJS)
 	echo "Compiling object file: $@"
 	mkdir $(ODIR)/build
 	$(CC) $(CFLAGS) $(LDLIBS) -o $(ODIR)/build/$@.o
