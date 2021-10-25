@@ -240,16 +240,16 @@ void TM1637_display_text(char* text) {
         fprintf(stderr, "The display can only show 4 chars! (%d > 4)\n", sizeof(text));
     } else {
         if(sizeof(text) >= 1) {
-            TM1637_display(SEG1, TM1637_calc_char(text[0]), OFF);
+            TM1637_display(SEG1, TM1637_calc_char(text[0]), ON);
         }
         if(sizeof(text) >= 2) {
-            TM1637_display(SEG2, TM1637_calc_char(text[1]), OFF);
+            TM1637_display(SEG2, TM1637_calc_char(text[1]), ON);
         }
         if(sizeof(text) >= 3) {
-            TM1637_display(SEG3, TM1637_calc_char(text[2]), OFF);
+            TM1637_display(SEG3, TM1637_calc_char(text[2]), ON);
         }
         if(sizeof(text) >= 4) {
-            TM1637_display(SEG4, TM1637_calc_char(text[3]), OFF);
+            TM1637_display(SEG4, TM1637_calc_char(text[3]), ON);
         }
     }
 }
