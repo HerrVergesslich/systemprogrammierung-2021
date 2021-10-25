@@ -40,6 +40,8 @@ void TM1637_clear_segment(segment seg);
  */
 void TM1637_display_number(float number);
 
+void TM1637_display_text(char[] text);
+
 #ifdef __cplusplus
 }
 #endif
