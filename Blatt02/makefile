@@ -39,7 +39,7 @@ clean:
 	@rm -r -f -v $(ODIR)/build
 
 distclean:
-	@echo Entferne alle generierten Ordner: /bin /lib & /doc
+	@echo Entferne alle generierten Ordner: /bin /lib und /doc
 	@rm -r -f -v $(BDIR)
 	@rm -r -f -v $(LDIR)
 	@rm -r -f -v $(DDIR)
