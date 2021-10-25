@@ -23,7 +23,7 @@ typedef enum {
 
 typedef enum {
     DARK = 0,
-    MEDIUM = 1,
+    MEDIUM = 2,
     BRIGHT = 7
 }brightness;
 

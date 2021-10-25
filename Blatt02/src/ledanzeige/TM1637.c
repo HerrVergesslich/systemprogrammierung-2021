@@ -47,7 +47,28 @@ const byte NUMBER_TO_BYTE[] = {
 0x39, /* C: 0b00111001 */
 0x5e, /* d: 0b01011110 */
 0x79, /* E: 0b01111001 */
-0x71 /* F: 0b01110001 */
+0x71, /* F: 0b01110001 */
+0x7d, /* G: 0b01111101 */
+0x76, /* H: 0b01110110 */
+/* 0x74, h: 0b01110100 */
+0x20, /* i: 0b00100000 */
+0x1e, /* j: 0b00011110 */
+0x75, /* k: 0b01110101 */
+0x38, /* L: 0b00111000 */
+0x55, /* m: 0b01010101 */
+0x54, /* n: 0b01010100 */
+0x5c, /* o: 0b01011100 */
+0x73, /* p: 0b01110011 */
+0x67, /* q: 0b01100111 */
+0x50, /* r: 0b01010000 */
+0x6d, /* s: 0b01101101 */
+0x78, /* t: 0b01111000 */
+0x1c, /* u: 0b00011100 */
+0x2a, /* v: 0b00101010 */
+0x6a, /* w: 0b01101010 */
+0x14, /* x: 0b00010100 */
+0x6e, /* y: 0b01101110 */
+0x5b /* z: 0b01011011 */
 };
 
 /* Vorwaerts-Deklaration (Funktionen nicht in Schnittstelle) */
@@ -55,7 +76,7 @@ static void TM1637_start(void);
 static void TM1637_stop(void);
 
 /* globale Variable fuer die Helligkeit */
-static brightness bright = BRIGHT;
+static brightness bright = MEDIUM;
 
 /*
  * Initialisierung von WiringPi und der Segmentanzeige.
@@ -196,6 +217,41 @@ void TM1637_display_number(float number) {
     TM1637_display(SEG2, TM1637_calculate_display(number, SEG2), OFF);
     TM1637_display(SEG3, TM1637_calculate_display(number, SEG3), ON);
     TM1637_display(SEG4, TM1637_calculate_display(number, SEG4), OFF);
+}
+
+byte TM1637_calc_char(char character) {
+    int c = (int) character;
+    if(c >= 48 && c <= 57) { /* 0-9 */
+        return NUMBER_TO_BYTE[c - 48];
+    } else if(c >= 65 && c <= 90) { /* A-Z */
+        return NUMBER_TO_BYTE[c - 65 + 10];
+    } else if(c >= 97 && c <= 122) { /* a-z */
+        return NUMBER_TO_BYTE[c - 97 + 10];
+    } else if(c == 32) { /* SPACE */
+        return 0x00;
+    } else {
+        fprintf(stderr, "Unsupported character: %c", character);
+    }
+    return 0x00;
+}
+
+void TM1637_display_text(char* text) {
+    if(sizeof(text) > 4) {
+        fprintf(stderr, "The display can only show 4 chars! (%d > 4)\n", sizeof(text));
+    } else {
+        if(sizeof(text) >= 1) {
+            TM1637_display(SEG1, TM1637_calc_char(text[0]), OFF);
+        }
+        if(sizeof(text) >= 2) {
+            TM1637_display(SEG2, TM1637_calc_char(text[1]), OFF);
+        }
+        if(sizeof(text) >= 3) {
+            TM1637_display(SEG3, TM1637_calc_char(text[2]), OFF);
+        }
+        if(sizeof(text) >= 4) {
+            TM1637_display(SEG4, TM1637_calc_char(text[3]), OFF);
+        }
+    }
 }
 
 /*
