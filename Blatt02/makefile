@@ -1,4 +1,4 @@
-IDIR = ./include
+IDIR = include
 ODIR = src
 BDIR = bin
 LDIR = lib
@@ -8,10 +8,11 @@ CFLAGS = -ansi -pedantic -Wall -I$(IDIR)
 LDLIBS = -lwiringPi
 OBJS = $(ODIR:.c=.o)
 
-all: build	
+all: build
 
 $(ODIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) $^ -o $@
+	echo "Creating Object-File: $@"
 
 build: $(OBJS)
 	mkdir $(ODIR)/build
