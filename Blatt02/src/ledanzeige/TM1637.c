@@ -221,13 +221,13 @@ void TM1637_display_number(float number) {
 
 byte TM1637_calc_char(char character) {
     int c = (int) character;
-    if(c >= 48 && c <= 57) { //0-9
+    if(c >= 48 && c <= 57) { /* 0-9 */
         return NUMBER_TO_BYTE[c - 48];
-    } else if(c >= 65 && c <= 90) { //A-Z
+    } else if(c >= 65 && c <= 90) { /* A-Z */
         return NUMBER_TO_BYTE[c - 65 + 10];
-    } else if(c >= 97 && c <= 122) { //a-z
+    } else if(c >= 97 && c <= 122) { /* a-z */
         return NUMBER_TO_BYTE[c - 97 + 10];
-    } else if(c == 32) { //SPACE
+    } else if(c == 32) { /* SPACE */
         return 0x00;
     } else {
         fprintf(stderr, "Unsupported character: %c", character);
