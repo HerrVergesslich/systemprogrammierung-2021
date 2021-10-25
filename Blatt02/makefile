@@ -15,6 +15,7 @@ $(ODIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) $^ -o $@
 
 build: $(OBJS)
+	echo "Creating Object-File: $@"
 	mkdir $(ODIR)/build
 	$(CC) $(CFLAGS) $(LDLIBS) -o $(ODIR)/build/$@
 
