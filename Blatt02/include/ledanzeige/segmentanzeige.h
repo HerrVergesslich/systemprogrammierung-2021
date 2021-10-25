@@ -19,11 +19,7 @@ typedef long int int32;
 /* Definiere unsigned long int als uint32 */
 typedef unsigned long int uint32;
 
-<<<<<<< HEAD
 /* Enum als Repräsentation der Segmentanzeigen-Stellen */
-=======
-
->>>>>>> b90433135d0d9b135c4edd92f725c159893b80b4
 typedef enum{
     SEG1 = 0,
     SEG2 = 1,
