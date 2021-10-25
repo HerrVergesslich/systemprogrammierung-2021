@@ -76,7 +76,7 @@ static void TM1637_start(void);
 static void TM1637_stop(void);
 
 /* globale Variable fuer die Helligkeit */
-static brightness bright = BRIGHT;
+static brightness bright = MEDIUM;
 
 /*
  * Initialisierung von WiringPi und der Segmentanzeige.
