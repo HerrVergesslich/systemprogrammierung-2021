@@ -219,6 +219,21 @@ void TM1637_display_number(float number) {
     TM1637_display(SEG4, TM1637_calculate_display(number, SEG4), OFF);
 }
 
+byte TM1637_calc_char(char character) {
+    int c = (int) character;
+    if(c >= 48 && c <= 57) { //0-9
+        return NUMBER_TO_BYTE[c - 48];
+    } else if(c >= 65 && c <= 90) { //A-Z
+        return NUMBER_TO_BYTE[c - 65 + 10];
+    } else if(c >= 97 && c <= 122) { //a-z
+        return NUMBER_TO_BYTE[c - 97 + 10];
+    } else if(c == 32) { //SPACE
+        return 0x00;
+    } else {
+        fprintf(stderr, "Unsupported character: %c", character);
+    }
+}
+
 void TM1637_display_text(char* text) {
     if(sizeof(text) > 4) {
         fprintf(stderr, "The display can only show 4 chars! (%d > 4)\n", sizeof(text));
@@ -235,21 +250,6 @@ void TM1637_display_text(char* text) {
         if(sizeof(text) >= 4) {
             TM1637_display(SEG4, TM1637_calc_char(text[3]), OFF);
         }
-    }
-}
-
-byte TM1637_calc_char(char character) {
-    int c = (int) character;
-    if(c >= 48 && c <= 57) { //0-9
-        return NUMBER_TO_BYTE[c - 48];
-    } else if(c >= 65 && c <= 90) { //A-Z
-        return NUMBER_TO_BYTE[c - 65 + 10];
-    } else if(c >= 97 && c <= 122) { //a-z
-        return NUMBER_TO_BYTE[c - 97 + 10];
-    } else if(c == 32) { //SPACE
-        return 0x00;
-    } else {
-        fprintf(stderr, "Unsupported character: %c", character);
     }
 }
 
