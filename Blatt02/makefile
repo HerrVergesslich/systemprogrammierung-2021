@@ -6,7 +6,8 @@ DDIR = doc
 CC = gcc
 CFLAGS = -ansi -pedantic -Wall -I$(IDIR)
 LDLIBS = -lwiringPi
-OBJS = $(ODIR:.c=.o)
+SRC = $(wildcard $(ODIR)/*.c)
+OBJS = $(SRC:.c=.o)
 
 all: build
 
@@ -15,9 +16,9 @@ $(ODIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) $^ -o $@
 
 build: $(OBJS)
-	echo "Creating Object-File: $@"
+	echo "Compiling object file: $@"
 	mkdir $(ODIR)/build
-	$(CC) $(CFLAGS) $(LDLIBS) -o $(ODIR)/build/$@
+	$(CC) $(CFLAGS) $(LDLIBS) -o $(ODIR)/build/$@.o
 
 install: all
 	echo "Kopiere ausführbare Dateien nach ./bin"
