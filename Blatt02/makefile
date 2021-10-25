@@ -44,3 +44,5 @@ distclean:
 	@rm -r -f -v $(BDIR)
 	@rm -r -f -v $(LDIR)
 	@rm -r -f -v $(DDIR)
+
+cleanall: clean distclean
