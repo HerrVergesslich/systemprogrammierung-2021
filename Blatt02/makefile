@@ -1,5 +1,5 @@
 IDIR = include
-ODIR = src
+ODIR = src/ledanzeige
 BDIR = bin
 LDIR = lib
 DDIR = doc
