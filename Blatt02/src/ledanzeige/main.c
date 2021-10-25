@@ -1,5 +1,8 @@
 #include "ledanzeige/TM1637.h"
 
+#include <stdlib.h>
+#include <stdio.h>
+
 void LED_Demo(){
     int i;
     TM1637_setup();
