@@ -1,12 +1,12 @@
 IDIR = include
-ODIR = src/ledanzeige
+ODIR = src
 BDIR = bin
 LDIR = lib
 DDIR = doc
 CC = gcc
 CFLAGS = -ansi -pedantic -Wall -I$(IDIR)
 LDLIBS = -lwiringPi
-SRC = $(wildcard $(ODIR)/*/.c)
+SRC = $(wildcard $(ODIR)/**/*.c)
 OBJS = $(SRC:.c=.o)
 
 all: ledanzeige
