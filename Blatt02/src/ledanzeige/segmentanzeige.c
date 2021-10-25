@@ -15,7 +15,7 @@ void TM1637_write_byte(byte wr_data){
         if(wr_data & (1 << i) > 0) {
             digitalWrite(PIN_DATA, HIGH);
         } else {
-            digitalWrite(PIN_DATA, LOW)
+            digitalWrite(PIN_DATA, LOW);
         }
         delayMicroseconds(DELAY_TIMER);
     }
