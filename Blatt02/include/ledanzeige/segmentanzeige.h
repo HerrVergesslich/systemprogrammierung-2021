@@ -1,3 +1,6 @@
+#ifndef SEGMENTANZEIGE_H
+#define SEGMENTANZEIGE_H
+
 typedef unsigned char byte;
 typedef signed char int8;
 typedef int int16;
@@ -22,3 +25,5 @@ typedef enum {
     MEDIUM = 1,
     BRIGHT = 7
 }brightness;
+
+#endif
