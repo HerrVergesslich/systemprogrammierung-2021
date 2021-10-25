@@ -9,10 +9,10 @@ LDLIBS = -lwiringPi
 SRC = $(wildcard $(ODIR)/*/.c)
 OBJS = $(SRC:.c=.o)
 
+all: ledanzeige
+
 $(ODIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) $^ -o $@
-
-all: ledanzeige
 
 ledanzeige: $(OBJS)
 	@echo "objs: $(OBJS)"
