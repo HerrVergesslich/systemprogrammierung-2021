@@ -10,15 +10,15 @@ typedef enum{
     SEG2 = 1,
     SEG3 = 2,
     SEG4 = 3
-}segment
+}segment;
 
 typedef enum {
     OFF = 0,
     ON = 1
-}dot
+}dot;
 
 typedef enum {
     DARK = 0,
     MEDIUM = 1,
     BRIGHT = 7
-}brightness
+}brightness;
