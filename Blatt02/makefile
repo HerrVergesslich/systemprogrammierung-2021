@@ -9,34 +9,37 @@ LDLIBS = -lwiringPi
 SRC = $(wildcard $(ODIR)/**/.c)
 OBJS = $(SRC:.c=.o)
 
-all: ledanzeige
-
 $(ODIR)/%.o: %.c
 	$(CC) -c $(CFLAGS) $^ -o $@
 
+all: ledanzeige
+
 ledanzeige: $(OBJS)
-	$(CC) $(CFLAGS) $(LDLIBS) $^ -o $(ODIR)/$@/$@.o
+	@mkdir -p $(ODIR)/build
+	@echo "Compiling Files: $^"
+	$(CC) $(CFLAGS) $(LDLIBS) $^ -o $(ODIR)/build/$@
 
 install: all
-	echo "Kopiere ausführbare Dateien nach ./bin"
+	@echo "Kopiere ausführbare Dateien nach ./bin"
 	cp $(ODIR)/build/* $(BDIR)/
 
 test:
-	echo "Keine Tests."
+	@echo "Not implemented"
 
 run: install
 
 doc: 
+	@echo "Not implemented"
 
 .PHONY: clean
 
 clean:
-	echo Entferne alle temp-Files
-	rm -rf $(ODIR)/*.o
-	rm -rf $(ODIR)/build
+	@echo Entferne alle temp-Files
+	@rm -r -f -v $(ODIR)/*.o
+	@rm -r -f -v $(ODIR)/build
 
 distclean:
-	echo Entferne alle generierten Ordner: /bin /lib & /doc
-	rm -r -f $(BDIR)
-	rm -r -f $(LDIR)
-	rm -r -f $(DDIR)
+	@echo Entferne alle generierten Ordner: /bin /lib & /doc
+	@rm -r -f -v $(BDIR)
+	@rm -r -f -v $(LDIR)
+	@rm -r -f -v $(DDIR)
