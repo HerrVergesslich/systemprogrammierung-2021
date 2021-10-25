@@ -11,6 +11,7 @@
 extern "C" {
 #endif
 
+#include "ledanzeige/segementanzeige.h"
 
 /* Delay in Mikrosekunden, passend fuer TM1637_write_byte() */
 #define DELAY_TIMER 100

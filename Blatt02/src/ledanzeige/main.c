@@ -9,6 +9,7 @@ void LED_Demo(){
     }
 }
 
-void main(){
+int main(){
     LED_Demo();
+    return 0;
 }

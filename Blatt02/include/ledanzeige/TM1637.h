@@ -6,6 +6,8 @@
  * ============================================================================
  */
 
+#include "ledanzeige/segementanzeige.h"
+
 #ifndef TM1637_H
 #define TM1637_H
 
