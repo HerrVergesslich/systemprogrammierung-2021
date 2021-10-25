@@ -1,6 +1,6 @@
-#include "ledanzeige/segmentanzeige.h"
-#include "ledanzeige/TM1637_intern.h"
-#include "ledanzeige/segmentanzeige.h"
+#include "../../include/ledanzeige/segmentanzeige.h"
+#include "../../include/ledanzeige/TM1637_intern.h"
+#include "../../include/ledanzeige/TM1637.h"
 
 #include <stdlib.h>
 #include <stdio.h>
