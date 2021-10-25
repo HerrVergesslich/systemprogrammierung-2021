@@ -13,8 +13,6 @@
 extern "C" {
 #endif
 
-#include "ledanzeige/segmentanzeige.h"
-
 /*
  * Initialisierung von WiringPi und der Segmentanzeige.
  * Muss genau einmal vor der Benutzung der Anzeige aufgerufen werden.
