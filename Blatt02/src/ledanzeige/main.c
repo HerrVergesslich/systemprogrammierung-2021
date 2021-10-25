@@ -6,12 +6,12 @@
 #include <time.h>
 
 void LED_Demo(){
-    int i;
+    float i;
     TM1637_setup();
     while(1) {
         TM1637_display_number((float)i);
-        printf("Showing: %d\n", i);
-        i ++;
+        printf("Showing: %f\n", i);
+        i += 0.1f;
         if(i > 999) {
             i = 0;
         }
