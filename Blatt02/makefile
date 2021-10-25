@@ -22,6 +22,7 @@ ledanzeige: $(OBJS)
 
 install: all
 	@echo "Kopiere ausführbare Dateien nach ./bin"
+	@mkdir -p $(BDIR)
 	cp $(ODIR)/build/* $(BDIR)/
 
 test:
