@@ -251,22 +251,22 @@ void TM1637_display_text(char* text) {
         if(sizeof(text) >= 1) {
             TM1637_display(SEG1, TM1637_calc_char(text[0]), OFF);
         } else {
-            TM1637_display(SEG1, 0x00, OFF)
+            TM1637_display(SEG1, 0x00, OFF);
         }
         if(sizeof(text) >= 2) {
             TM1637_display(SEG2, TM1637_calc_char(text[1]), OFF);
         } else {
-            TM1637_display(SEG2, 0x00, OFF)
+            TM1637_display(SEG2, 0x00, OFF);
         }
         if(sizeof(text) >= 3) {
             TM1637_display(SEG3, TM1637_calc_char(text[2]), OFF);
         } else {
-            TM1637_display(SEG3, 0x00, OFF)
+            TM1637_display(SEG3, 0x00, OFF);
         }
         if(sizeof(text) >= 4) {
             TM1637_display(SEG4, TM1637_calc_char(text[3]), OFF);
         } else {
-            TM1637_display(SEG4, 0x00, OFF)
+            TM1637_display(SEG4, 0x00, OFF);
         }
     }
 }
