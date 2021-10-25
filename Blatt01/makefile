@@ -1,4 +1,4 @@
-all: aufg1 aufg2 aufg3 aufg4 aufg6
+all: aufg1 aufg2 aufg3 aufg4 aufg6 hello_world
 
 aufg1: aufg1.c
 	 gcc -ansi -pedantic -Wall -o aufg1.exe aufg1.c

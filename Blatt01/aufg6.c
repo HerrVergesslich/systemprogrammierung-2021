@@ -91,7 +91,6 @@ void print_zoo(){
 }
 
 int main(){
-
     zoo[0] = elephant;
     zoo[1] = ape;
     zoo[2] = cockato;
@@ -107,5 +106,3 @@ int main(){
     print_zoo();
     return EXIT_SUCCESS;
 }
-
-

@@ -8,6 +8,7 @@ typedef unsigned int uint16;
 typedef long int int32;
 typedef unsigned long int uint32;
 
+
 typedef enum{
     SEG1 = 0,
     SEG2 = 1,
