@@ -8,7 +8,7 @@
 void LED_Demo(){
     int i;
     TM1637_setup();
-    while(true) {
+    while(1) {
         TM1637_display_number((float)i);
         printf("Showing: %d\n", i);
         delayMicroseconds(1000*2);
