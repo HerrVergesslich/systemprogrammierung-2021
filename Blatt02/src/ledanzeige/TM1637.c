@@ -232,6 +232,7 @@ byte TM1637_calc_char(char character) {
     } else {
         fprintf(stderr, "Unsupported character: %c", character);
     }
+    return 0x00;
 }
 
 void TM1637_display_text(char* text) {
