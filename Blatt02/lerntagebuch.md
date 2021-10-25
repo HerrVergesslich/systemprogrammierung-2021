@@ -1,4 +1,4 @@
-# Lerntagebuch Blatt02 (Sieben-Segment-Anzeige von Finn Watermann / Mattis Fieseler / Ben-Lukas Horn)
+# Lerntagebuch Blatt02 (LED-Segmentanzeige von Finn Watermann / Mattis Fieseler / Ben-Lukas Horn)
 
 ## Datentypen (1P)
 
@@ -60,8 +60,23 @@ Die Datenübertragung wird nach der For-Schleife mit `TM1637_ack()` beendet.
 ## LED-Demo (1P)
 
 Es soll eine kleine Demonstration der LED-Segmentanzeige implementiert werden.
-Unsere LED-Segmentanzeige zählt bis 999 hoch und springt dann wieder auf Null und fängt von vorne an. Dafür haben wir in der Datei [TM1637.c](./src/ledanzeige/TM1637.c)
+Unsere LED-Segmentanzeige zählt bis 999 hoch und springt dann wieder auf Null und fängt von vorne an. Dafür haben wir in der Datei [main.c](./src/ledanzeige/main.c) die Methode `LED_DEMO()` implementiert. 
 
+    void LED_Demo(){
+        float i;
+        TM1637_setup();
+        while(1) {
+            TM1637_display_number((float)i);
+            printf("Showing: %f\n", i);
+            i += 0.1f;
+            if(i > 999) {
+                i = 0;
+            }
+        }
+    }
+
+Wir haben eine unendliche While-Schleife implementiert die immer wieder `TM1637_display_number()` aufruft und die Variable `i` die am Anfang deklariert wurde dort als Parameter mitgibt.
+danach wird auf der Console die Zahl ausgegeben die angezeigt wird. Dann wird die Variable `i` in 0.1er Schritten hochgezählt. Sollte `i` größer als 999 werden, wird die Variable auf null zurückgesetzt. 
 ## Make (1P)
 
 Schreiben Sie ein Makefile für Ihr Programm entsprechend den Regeln für das Praktikum.
