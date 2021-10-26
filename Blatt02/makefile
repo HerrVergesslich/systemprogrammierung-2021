@@ -31,7 +31,7 @@ test:
 run: install
 
 doc: 
-	@echo "Not implemented"
+	doxygen doxygen.config
 
 .PHONY: clean
 
