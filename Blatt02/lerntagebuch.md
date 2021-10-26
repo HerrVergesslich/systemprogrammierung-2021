@@ -77,12 +77,8 @@ Unsere LED-Segmentanzeige zählt bis 999 hoch und springt dann wieder auf Null u
 
 Wir haben eine unendliche While-Schleife implementiert die immer wieder `TM1637_display_number()` aufruft und die Variable `i` die am Anfang deklariert wurde dort als Parameter mitgibt.
 danach wird auf der Console die Zahl ausgegeben die angezeigt wird. Dann wird die Variable `i` in 0.1er Schritten hochgezählt. Sollte `i` größer als 999 werden, wird die Variable auf null zurückgesetzt. 
-## Make (1P)
-
-Schreiben Sie ein Makefile für Ihr Programm entsprechend den Regeln für das Praktikum.
-
 
 ## Unsere Erfahrungen
 Wir haben die Codeschnippsel aus der Aufgabenstellung in die entsprechenden Dateien kopiert und auf den Pi geschrieben.
 Wir hatten allerdings Probleme den Import der Header Dateien zu finden. Als wir dann das -i durch das -I getauscht hatten, hat es funktioniert.
-Für die Demo Aufgabe haben wir eine Zahlenfolge von 0 bis 999 anzeigen lassen.
+Nachdem wir uns etwas mit dem Makefile herumgeschlagen haben, hat es schlussendlich dann doch geklappt. Jetzt wissen wir einigermaßen, wie es funktioniert.
