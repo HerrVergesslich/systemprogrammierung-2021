@@ -29,6 +29,7 @@ test:
 	@echo "Not implemented"
 
 run: install
+	./bin/ledanzeige
 
 doc: 
 	doxygen doxygen.config
