@@ -219,7 +219,7 @@ void TM1637_display_number(float number) {
     TM1637_display(SEG4, TM1637_calculate_display(number, SEG4), OFF);
 }
 
-/*
+/**
  * Hilfsfunktion um Bitsequenz für Buchstaben zu ermitteln.
  * Die Funktion wird in TM1637_display_text() verwendet.  
  */

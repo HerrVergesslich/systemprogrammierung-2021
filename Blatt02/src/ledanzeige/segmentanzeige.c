@@ -5,6 +5,9 @@
 #include <stdio.h>
 #include <wiringPi.h>
 
+/**
+ * Sendet einen Byte an die 7-Segmentanzeige 
+ */
 void TM1637_write_byte(byte wr_data){
     int i;
     for(i=0; i < 8; i ++) {

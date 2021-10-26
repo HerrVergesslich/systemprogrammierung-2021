@@ -6,7 +6,7 @@
 #include <wiringPi.h>
 #include <time.h>
 
-/*
+/**
  * Eine Funktion, um die 7-Segmentanzeige zu demonstrien.
  * Es wird eine aufsteigende Zahl angezeigt, die, wenn sie 999.9 err
  */
@@ -23,7 +23,7 @@ void LED_Demo(){
     }
 }
 
-/*
+/**
  * Eine Funktion, die die 7-Segmentanzeige nach Hilfe schreien lässt.
  * Es wird abwechselnd "SEND" und "HELP" angezeigt.
  */
@@ -42,10 +42,10 @@ void sendHelp() {
     }    
 }
 
-/*
+/**
  * Die Hauptfunktion des Programms. 
  * Sie wird beim Start des Programs aufgerufen.
-*/
+ */
 int main(){
     /* LED_Demo(); */
     sendHelp();
