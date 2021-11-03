@@ -42,7 +42,6 @@ struct node *new_list(student data)
 }
 
 struct node *getLastElement(struct node* list){
-	struct node* head = list;
 	struct node* current = list;
 	while(current->next != NULL){
 		current = current->next;
