@@ -19,7 +19,7 @@ struct node {
 
 struct node * new_list() {
     struct node *new = (struct node*) malloc(sizeof(struct node));
-    new->data = -1;
+    new->data = ;
     new->left = new;
     new->right = new;
     return new;
