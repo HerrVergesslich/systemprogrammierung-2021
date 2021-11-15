@@ -12,7 +12,7 @@ int cm_init(void) {
 
     alreadyCalled = 1;
 
-    freemem = mempool;
+    freemem = (memblock*) mempool;
     freemem->id = 0;
     freemem->size = MEM_POOL_SIZE - sizeof(memblock);
     freemem->next = NULL;
@@ -28,6 +28,8 @@ void* cm_malloc(size_t needSize) {
     memblock* run = freemem;
     memblock* prev = NULL;
 
+    if(freemem == NULL) return NULL;
+
     do {
         if(run->size >= needSize) { //Block ist groß genug für benötigten Speicherplatz
             
@@ -35,7 +37,7 @@ void* cm_malloc(size_t needSize) {
             if(run == freemem) freemem = freemem->next;
 
             run->id = nextId ++;
-            run->next = MAGIC_INT;
+            run->next = (memblock*) MAGIC_INT;
             
             return run+1;
         } else {
