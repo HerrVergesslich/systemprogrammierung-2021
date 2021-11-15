@@ -1,7 +1,7 @@
 #include "speicherverwaltung/speicherverwaltung.h"
 #include <stdio.h>
-mempool[MEM_POOL_SIZE];
-freemem;
+char mempool[MEM_POOL_SIZE];
+memblock * freemem;
 
 int cm_init(void){
     static int called = 0;
