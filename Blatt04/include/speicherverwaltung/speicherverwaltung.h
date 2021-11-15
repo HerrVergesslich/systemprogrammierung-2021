@@ -7,6 +7,7 @@
 
 int cm_init(void);
 void * cm_malloc(size_t size);
+void cm_free(void *ptr);
 
 typedef struct memblock{
     size_t size;

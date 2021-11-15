@@ -27,13 +27,21 @@ void * cm_malloc(size_t size){
     }
     while(run != NULL){
         if(size<= run->size){
-            number++;
             freemem->size = freemem->size - run->size;
-            run->id = number; 
+            run->id = number++; 
             run->next = (memblock *)MAGIC_INT;
             return run;
         }
         run = run->next;
     }
     return NULL;
+}
+
+ void cm_free(void *ptr){
+    memblock * temp = (memblock *) ptr;
+    if(temp && temp->next == MAGIC_INT){
+         temp->next = freemem;
+         temp->id = 1;
+         freemem = temp;
+    }
 }
