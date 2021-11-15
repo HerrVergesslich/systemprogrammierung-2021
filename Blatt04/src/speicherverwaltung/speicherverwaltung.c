@@ -27,9 +27,11 @@ void * cm_malloc(size_t size){
     }
     while(run != NULL){
         if(size<= run->size){
-            freemem->size = freemem->size - run->size;
+            int temp = freemem->size - run->size;
+            freemem->size = temp;
             run->id = number++; 
             run->next = (memblock *)MAGIC_INT;
+            if(temp <= 0)freemem = NULL;
             return run;
         }
         run = run->next;
@@ -39,7 +41,7 @@ void * cm_malloc(size_t size){
 
  void cm_free(void *ptr){
     memblock * temp = (memblock *) ptr;
-    if(temp && temp->next == MAGIC_INT){
+    if(temp && temp->next == (memblock *)MAGIC_INT){
          temp->next = freemem;
          temp->id = 1;
          freemem = temp;
