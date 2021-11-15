@@ -30,10 +30,10 @@ void * cm_malloc(size_t size){
     while(run != NULL){
         if(size <= run->size){
             int temp = freemem->size - run->size;
-            freemem->size = temp;
             run->id = number++; 
-            run->size = size;
+            run->size = run->size - sizeof(memblock);
             run->next = (memblock *)MAGIC_INT;
+            freemem->size = temp;
             printf("%d\n", temp);
             if(temp <= 0)freemem = NULL;
             return run+1;
