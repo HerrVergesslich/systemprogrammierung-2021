@@ -4,8 +4,8 @@ char mempool[MEM_POOL_SIZE];
 memblock * freemem;
 
 int cm_init(void){
-    printf("Size of memblock pointer: $d", sizeof(memblock*));
-    printf("Size of memblock: %d", sizeof(memblock));
+    printf("Size of memblock pointer: $d\n", sizeof(memblock*));
+    printf("Size of memblock: %d\n", sizeof(memblock));
     static int called = 0;
     if(MEM_POOL_SIZE<4096){
         return -1;
