@@ -1,5 +1,10 @@
 #ifndef speicherverwaltung_h
 #define speicherverwaltung_h
+
+#ifndef MALLOCSPLIT
+    #define MALLOCSPLIT 0
+#endif
+
 #include <stdlib.h>
 
 #define MAGIC_INT 0xacdcacdc
