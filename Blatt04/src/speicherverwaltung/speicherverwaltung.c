@@ -28,6 +28,7 @@ void * cm_malloc(size_t size){
     while(run != NULL){
         if(size<= run->size){
             int temp = freemem->size - run->size;
+            printf("%i",temp);
             freemem->size = temp;
             run->id = number++; 
             run->next = (memblock *)MAGIC_INT;
