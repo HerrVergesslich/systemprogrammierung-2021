@@ -6,8 +6,8 @@
 #define MEM_POOL_SIZE 4096
 
 int cm_init(void);
-void * cm_malloc(size_t size);
-void cm_free(void *ptr);
+void * cm_malloc(size_t);
+void cm_free(void*);
 
 typedef struct memblock {
     size_t size;            // Für User nutzbare Länge des Blocks [Bytes]

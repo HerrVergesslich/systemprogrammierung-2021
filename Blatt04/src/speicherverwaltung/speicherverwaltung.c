@@ -20,22 +20,26 @@ int cm_init(void){
     return 1;
 }
 
-void * cm_malloc(size_t size){
+void * cm_malloc(size_t needSize){
     static int number = 1;
-    if(size <= 0) return NULL;
-    memblock * run = freemem;
-    if(freemem == NULL){
-        return NULL;
-    }
+    
+    if(needSize <= 0) return NULL;
+    if(freemem == NULL) return NULL;
+
+    memblock* run = freemem;
+    
     while(run != NULL){
-        if(size <= run->size){
-            /*int temp = freemem->size - run->size;
-            freemem->size = temp;*/
+
+        if(run->size >= needSize){
+
             run->id = number++; 
-            run->next = (memblock *)MAGIC_INT;
-            if(MEM_POOL_SIZE - run->size <= sizeof(memblock)) freemem = NULL;
+            run->next = (memblock*) MAGIC_INT;
+
+            if(freemem->size - run->size <= 0) freemem = NULL;
             return run+1;
+
         }
+
         run = run->next;
     }
     return NULL;
