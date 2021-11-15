@@ -453,7 +453,7 @@ TEST(Speicherverwaltung, test_cm_malloc_last_block) {
     f->size = &mempool[MEM_POOL_SIZE - 1] - ((char*) (f + 1));
     f->next = NULL;
 
-    printf("Test: %d", &mempool[MEM_POOL_SIZE - 1] - ((char*) (f + 1)));
+    printf("Test: %d\n", &mempool[MEM_POOL_SIZE - 1] - ((char*) (f + 1)));
 
     tmp = cm_malloc(&mempool[MEM_POOL_SIZE - 1] - ((char*) (f + 1)));
     ++id;
