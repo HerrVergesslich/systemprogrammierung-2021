@@ -20,17 +20,17 @@ int cm_init(void){
 
 void * cm_malloc(size_t size){
     static int number = 1;
-    if(size <= 0)return NULL;
+    if(size <= 0) return NULL;
     memblock * run = freemem;
     if(freemem == NULL){
         return NULL;
     }
     while(run != NULL){
-        if(size<= run->size){
-            int temp = freemem->size - run->size;
-            printf("%i",temp);
+        if(size <= run->size){
+            int temp = freemem->size - size;
             freemem->size = temp;
             run->id = number++; 
+            run->size = size;
             run->next = (memblock *)MAGIC_INT;
             if(temp <= 0)freemem = NULL;
             return run;
