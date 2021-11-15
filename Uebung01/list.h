@@ -22,8 +22,14 @@ void insert_next(struct node *list, student data);
 
 void append(struct node* list,student element);
 
-void delete(struct node *element);
+void delete(struct node *element, int deleteStudent);
+
+void clear(struct node *list, int deleteStudent);
 
 void print_list(struct node *list);
+
+int count(struct node *list);
+
+struct node* filterByStudiengang(struct node* list, enrolled gang);
 
 #endif

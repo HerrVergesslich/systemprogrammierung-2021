@@ -57,11 +57,24 @@ void append(struct node* list,student element){
 	lastelement->next = new;
 }
 
-void delete(struct node *element)
+void delete(struct node *element, int deleteStudent)
 {
 	element->next->prev = element->prev; /*setzt linken Wert des rechten Nachbarn auf linken Wert von element*/
 	element->prev->next = element->next; /*setzt rechten Wert des linken Nachbarn auf rechten Wert von element*/
+	if(deleteStudent > 0) {
+		student *p = &(element->data);
+		free(p);
+	}
 	free(element);
+}
+
+void clear(struct node *list, int deleteStudent) {
+	struct node* nextElement = list;
+	while(nextElement != NULL) {
+		struct node* ne = nextElement->next;
+		delete(nextElement, deleteStudent);
+		nextElement = ne;
+	}
 }
 
 void print_list(struct node *list)
@@ -72,4 +85,30 @@ void print_list(struct node *list)
 		printf("name: %s | enrolled: %s | credit points: %i\n", next->data.name, getEnumName(next->data.enrolled), next->data.cps);
 		next = next->next;
 	}
+}
+
+int count(struct node *list) {
+	int count = 0;
+	struct node* current = list;
+	while(current->next != NULL){
+		current = current->next;
+		count ++;
+	}
+	return count;
+}
+
+struct node* filterByStudiengang(struct node* list, enrolled gang) {
+	struct node* newList = NULL;
+	struct node* current = list;
+	while(current->next != NULL){
+		if(current->data.enrolled == gang) {
+			if(newList == NULL) {
+				newList = new_list(current->data);
+			} else {
+				append(newList, current->data);
+			}
+		}
+		current = current->next;
+	}
+	return newList;
 }
