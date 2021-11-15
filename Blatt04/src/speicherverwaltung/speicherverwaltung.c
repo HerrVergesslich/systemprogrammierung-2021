@@ -34,7 +34,7 @@ void * cm_malloc(size_t size){
             run->next = (memblock *)MAGIC_INT;
             printf("%d", temp);
             if(temp <= 0)freemem = NULL;
-            return run;
+            return run + sizeof(memblock);
         }
         run = run->next;
     }
