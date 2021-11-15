@@ -11,7 +11,7 @@ int cm_init(void){
         return 0;
     }
     called = 1;
-    freemem = mempool;
+    freemem = (memblock *)mempool;
     freemem->size = (MEM_POOL_SIZE-sizeof(memblock));
     freemem->id = 0;
     freemem->next = NULL;
