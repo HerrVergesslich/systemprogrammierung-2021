@@ -1,5 +1,6 @@
 #ifndef speicherverwaltung_h
 #define speicherverwaltung_h
+#include <stdlib.h>
 
 #define MAGIC_INT 0xacdcacdc
 #define MEM_POOL_SIZE 4096
