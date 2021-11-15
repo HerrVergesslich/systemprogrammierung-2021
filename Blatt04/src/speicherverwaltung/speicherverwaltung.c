@@ -30,7 +30,7 @@ void * cm_malloc(size_t needSize){
     
     while(run != NULL){
 
-        if(run->size > needSize){
+        if(run->size >= needSize){
 
             run->id = number++; 
             run->next = (memblock*) MAGIC_INT;
