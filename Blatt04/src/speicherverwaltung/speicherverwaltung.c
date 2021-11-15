@@ -1,4 +1,4 @@
-#include "speicherverwaltung.h"
+#include "speicherverwaltung/speicherverwaltung.h"
 #include <stdio.h>
 mempool[MEM_POOL_SIZE];
 freemem;
