@@ -4,6 +4,8 @@ char mempool[MEM_POOL_SIZE];
 memblock * freemem;
 
 int cm_init(void){
+    printf("Size of memblock pointer: $d", sizeof(memblock*));
+    printf("Size of memblock: %d", sizeof(memblock));
     static int called = 0;
     if(MEM_POOL_SIZE<4096){
         return -1;
@@ -32,7 +34,7 @@ void * cm_malloc(size_t size){
             run->id = number++; 
             run->size = size;
             run->next = (memblock *)MAGIC_INT;
-            printf("%d", temp);
+            printf("%d\n", temp);
             if(temp <= 0)freemem = NULL;
             return run+1;
         }
@@ -48,14 +50,4 @@ void * cm_malloc(size_t size){
          temp->id = 1;
          freemem = temp;
     }
-}
-
-int main() {
-
-    char test = 'a';
-
-    cm_init();
-    cm_malloc(sizeof(test));
-
-    return 0;
 }
