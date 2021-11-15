@@ -8,13 +8,12 @@
 int cm_init(void);
 void * cm_malloc(size_t size);
 
-struct memblock * freemem;
-char mempool[];
-
 typedef struct memblock{
     size_t size;
     struct memblock * next;
     unsigned short id;
 }memblock;
 
+memblock * freemem;
+char mempool[MEM_POOL_SIZE];
 #endif

@@ -30,7 +30,7 @@ void * cm_malloc(size_t size){
             number++;
             freemem->size = freemem->size - run->size;
             run->id = number; 
-            run->next = MAGIC_INT;
+            run->next = (memblock *)MAGIC_INT;
             return run;
         }
         run = run->next;
