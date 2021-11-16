@@ -8,16 +8,27 @@
 #include <stdlib.h>
 
 #define MAGIC_INT 0xacdcacdc
-#define MEM_POOL_SIZE 4096
+#define MEM_POOL_SIZE 8192
 
+/**
+ * Funktion zur Initialisierung des (simulierten) Heaps.
+ */
 int cm_init(void);
+
+/**
+ * Funktion zur Reservierung eines Speicherbereichs im (simulierten) Heap.
+ */
 void * cm_malloc(size_t);
+
+/**
+ * Funktion zum Befreien eines Speicherbereichs im (simulierten) Heap.
+ */
 void cm_free(void*);
 
 typedef struct memblock {
-    size_t size;            // Für User nutzbare Länge des Blocks [Bytes]
-    struct memblock *next;  // Zeiger auf Anfang des nächsten freien Blocks (oder NULL)
-    unsigned short id;      // Fortlaufende und eindeutige Nummer des Blockes
+    size_t size;
+    struct memblock *next;
+    unsigned short id;
 } memblock;
 
 memblock * freemem;
