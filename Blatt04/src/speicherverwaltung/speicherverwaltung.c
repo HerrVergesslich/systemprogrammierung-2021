@@ -43,7 +43,7 @@ void* cm_malloc(size_t needSize) {
 
     while(run != NULL) {
 
-        if(run < mempool || run > mempool + MEM_POOL_SIZE) return NULL;
+        if(run < (memblock*)mempool || run > (memblock*)(mempool + MEM_POOL_SIZE)) return NULL; 
 
         if(run->size >= needSize) { //Block ist groß genug für benötigten Speicherplatz
             if(MALLOCSPLIT && run->size > needSize + 2*sizeof(memblock) + 32) {
@@ -89,13 +89,13 @@ void cm_free(void *ptr){
     if(ptr == NULL) return;
     memblock* temp = (memblock*)ptr - 1;
 
-    if(temp < mempool || temp > mempool + MEM_POOL_SIZE) {
-        printf("[FREE]: Pointer ist ausserhalb des Heaps! (ptr: %p mempool: %p)\n", temp, mempool);
+    if(temp < (memblock*)mempool || temp > (memblock*)(mempool + MEM_POOL_SIZE)) {
+        printf("[FREE]: Pointer ist ausserhalb des Heaps! (ptr: %p mempool: %p)\n", (void*)temp, (void*)mempool);
         return;
     }
 
-    if(temp->next == MAGIC_INT) {
-        printf("Speicher wird befreit: (ptr: %p mempool: %p)\n", temp, mempool);
+    if(temp->next == (memblock*)MAGIC_INT) {
+        printf("Speicher wird befreit: (ptr: %p mempool: %p)\n", (void*)temp, (void*)mempool);
         if(freemem == NULL) {
             freemem = temp;
             temp->next = NULL;
@@ -104,6 +104,6 @@ void cm_free(void *ptr){
             freemem = temp;
         }
     } else {
-        printf("Ist kein belegter Speicher aus dem Heap! (ptr: %p mempool: %p)\n", temp, mempool);
+        printf("Ist kein belegter Speicher aus dem Heap! (ptr: %p mempool: %p)\n", (void*)temp, (void*)mempool);
     }
 }
