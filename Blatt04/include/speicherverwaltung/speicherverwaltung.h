@@ -2,7 +2,7 @@
 #define speicherverwaltung_h
 
 #ifndef MALLOCSPLIT
-    #define MALLOCSPLIT 0
+const int MALLOCSPLIT = 0;
 #endif
 
 #include <stdlib.h>
