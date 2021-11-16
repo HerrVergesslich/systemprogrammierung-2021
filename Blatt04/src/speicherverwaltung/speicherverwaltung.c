@@ -34,7 +34,7 @@ void* cm_malloc(size_t needSize) {
         if(run->size >= needSize) { //Block ist groß genug für benötigten Speicherplatz
             if(MALLOCSPLIT && run->size > needSize + 2*sizeof(memblock) + 32) {
                 
-                memblock* new = (memblock*) &run + needSize;
+                memblock* new = (memblock*) &run + sizeof(memblock) + needSize;
                 new->size = run->size - needSize - sizeof(memblock);
                 new->id = 0;
                 new->next = run->next;
