@@ -34,3 +34,5 @@ Wann immer Sie das Gefühl haben, eine Debug-Ausgabe zu brauchen: Schreiben Sie 
 Sie können die Tests auch in einem anderen Framework formulieren, dann muss Ihr Makefile ein Target aufweisen, welches das von Ihnen verwendete Framework lokal für den ausführenden User installiert.
 
 ## Unsere Erfahrungen
+Wir haben den Ringbuffer wie beschrieben programmiert.
+Für die Tests haben wir mittels cpp die Testfälle geschrieben und ausführen lassen.
