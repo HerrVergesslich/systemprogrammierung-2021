@@ -3,7 +3,7 @@
 #include <gtest/gtest.h>
 
 extern "C" {
-    #include "ringbuffer.h"
+    #include "ringbuffer/ringbuffer.h"
 }
 
 void testFreeCallback(void *p)
@@ -108,4 +108,9 @@ TEST(RingBuffer, removeTenElements) {
     }
     ASSERT_EQ(buffer->count, 0);
     ASSERT_EQ(buffer->head, 0);
+}
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }

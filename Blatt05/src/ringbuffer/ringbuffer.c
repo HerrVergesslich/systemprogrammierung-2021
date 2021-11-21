@@ -1,11 +1,11 @@
-#include "ringbuffer.h"
+#include "ringbuffer/ringbuffer.h"
 
 ring_buffer* init_buffer(const size_t size, void (*f)(void *p)) {
-    ring_buffer *buffer = malloc(sizeof(ring_buffer));
+    ring_buffer *buffer = (ring_buffer*) malloc(sizeof(ring_buffer));
     buffer->size = size;
     buffer->count = 0;
     buffer->head = 0;
-    buffer->elems = malloc(sizeof(void *) * size);
+    buffer->elems = (void**)malloc(sizeof(void *) * size);
     buffer->free_callback = f;
     return buffer;
 }
