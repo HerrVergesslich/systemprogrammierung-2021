@@ -1,6 +1,9 @@
 #ifndef RINGBUFFER_H
 #define RINGBUFFER_H
 
+#include <stdlib.h>
+#include <stdio.h>
+
 struct ring_buffer{
     size_t size,count,head;
     void **elems;
@@ -9,3 +12,5 @@ struct ring_buffer{
 
 void write();
 void init_buffer();
+
+#endif
