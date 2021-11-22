@@ -3,7 +3,13 @@
 
 void testFreeCallback(void *p)
 {
-    printf("%p\n", p);
+    free(p);
+}
+
+TEST(RingBuffer, initTooLargBuffer)
+{
+    ring_buffer *buffer = init_buffer(-1, testFreeCallback);
+    ASSERT_EQ(buffer, nullptr);
 }
 
 TEST(RingBuffer, initBuffer)
@@ -14,6 +20,19 @@ TEST(RingBuffer, initBuffer)
     ASSERT_EQ(buffer->free_callback, testFreeCallback);
     ASSERT_EQ(buffer->head, 0);
     ASSERT_EQ(buffer->count, 0);
+    free_buffer(buffer);
+}
+
+TEST(RingBuffer, addNullElement)
+{
+    ring_buffer* buffer = init_buffer(10, testFreeCallback);
+    buffer->size = 10;
+    buffer->free_callback = testFreeCallback;
+    buffer->head = 0;
+    buffer->count = 0;
+    write_buffer(buffer, NULL);
+    ASSERT_EQ(buffer->count, 0);
+    ASSERT_EQ(buffer->head, 0);
     free_buffer(buffer);
 }
 
@@ -28,7 +47,12 @@ TEST(RingBuffer, addElement)
     free_buffer(buffer);
 }
 
-TEST(RingBuffer, removeElement)
+TEST(RingBuffer, readElementFromNullBuffer) {
+    void *element = read_buffer(NULL);
+    ASSERT_EQ(element, nullptr);
+}
+
+TEST(RingBuffer, readElement)
 {
     ring_buffer* buffer = init_buffer(10, testFreeCallback);
     int* element = (int*) malloc(sizeof(int));
@@ -40,7 +64,7 @@ TEST(RingBuffer, removeElement)
     free_buffer(buffer);
 }
 
-TEST(RingBuffer, addAndRemoveElement)
+TEST(RingBuffer, addAndReadElement)
 {
     ring_buffer* buffer = init_buffer(10, testFreeCallback);
     int* element = (int*) malloc(sizeof(int));
@@ -65,7 +89,7 @@ TEST(RingBuffer, addTwoElements)
     free_buffer(buffer);
 }
 
-TEST(RingBuffer, removeTwoElements)
+TEST(RingBuffer, readTwoElements)
 {
     ring_buffer* buffer = init_buffer(10, testFreeCallback);
     int* element = (int*) malloc(sizeof(int));
@@ -92,7 +116,7 @@ TEST(RingBuffer, addTenElements)
     free_buffer(buffer);
 }
 
-TEST(RingBuffer, removeTenElements) {
+TEST(RingBuffer, readTenElements) {
     ring_buffer* buffer = init_buffer(10, testFreeCallback);
     for(int i = 0; i < 10; i++)
     {
