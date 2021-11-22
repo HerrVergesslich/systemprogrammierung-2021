@@ -40,4 +40,3 @@ int free_buffer(ring_buffer *cb)
     free(cb);
     return 0;
 }
-

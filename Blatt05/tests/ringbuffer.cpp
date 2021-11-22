@@ -1,10 +1,5 @@
-#include <string.h>
-#include <math.h>
 #include <gtest/gtest.h>
-
-extern "C" {
-    #include "ringbuffer/ringbuffer.h"
-}
+#include "ringbuffer/ringbuffer.h"
 
 void testFreeCallback(void *p)
 {
