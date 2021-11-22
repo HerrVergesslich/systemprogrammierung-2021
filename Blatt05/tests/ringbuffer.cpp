@@ -3,7 +3,7 @@
 
 void testFreeCallback(void *p)
 {
-    printf("%p", p);
+    printf("%p\n", p);
 }
 
 TEST(RingBuffer, initBuffer)
@@ -34,10 +34,10 @@ TEST(RingBuffer, removeElement)
     int* element = (int*) malloc(sizeof(int));
     buffer->elems[0] = element;
     buffer->count = 1;
-    buffer->head = 1;
     read_buffer(buffer);
     ASSERT_EQ(buffer->count, 0);
-    ASSERT_EQ(buffer->head, 0);
+    ASSERT_EQ(buffer->head, 1);
+    free_buffer(buffer);
 }
 
 TEST(RingBuffer, addAndRemoveElement)
@@ -47,7 +47,8 @@ TEST(RingBuffer, addAndRemoveElement)
     write_buffer(buffer, element);
     read_buffer(buffer);
     ASSERT_EQ(buffer->count, 0);
-    ASSERT_EQ(buffer->head, 0);
+    ASSERT_EQ(buffer->head, 1);
+    free_buffer(buffer);
 }
 
 TEST(RingBuffer, addTwoElements)
@@ -61,6 +62,7 @@ TEST(RingBuffer, addTwoElements)
     ASSERT_EQ(buffer->head, 0);
     ASSERT_EQ(element, buffer->elems[0]);
     ASSERT_EQ(element2, buffer->elems[1]);
+    free_buffer(buffer);
 }
 
 TEST(RingBuffer, removeTwoElements)
@@ -73,7 +75,8 @@ TEST(RingBuffer, removeTwoElements)
     read_buffer(buffer);
     read_buffer(buffer);
     ASSERT_EQ(buffer->count, 0);
-    ASSERT_EQ(buffer->head, 0);
+    ASSERT_EQ(buffer->head, 2);
+    free_buffer(buffer);
 }
 
 TEST(RingBuffer, addTenElements)
@@ -86,6 +89,7 @@ TEST(RingBuffer, addTenElements)
     }
     ASSERT_EQ(buffer->count, 10);
     ASSERT_EQ(buffer->head, 0);
+    free_buffer(buffer);
 }
 
 TEST(RingBuffer, removeTenElements) {
@@ -96,13 +100,14 @@ TEST(RingBuffer, removeTenElements) {
         buffer->elems[i] = element;
     }
     buffer->count = 10;
-    buffer->head = 9;
+    buffer->head = 0;
     for(int i = 0; i < 10; i++)
     {
         read_buffer(buffer);
     }
     ASSERT_EQ(buffer->count, 0);
     ASSERT_EQ(buffer->head, 0);
+    free_buffer(buffer);
 }
 
 int main(int argc, char **argv) {
