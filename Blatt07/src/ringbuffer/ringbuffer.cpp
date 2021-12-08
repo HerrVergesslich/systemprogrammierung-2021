@@ -4,30 +4,38 @@
 #include "ringbuffer07/RingBuffer.h"
 
 template <typename T, size_t size, typename alloc_t = std::allocator<T>>
-
 RingBuffer::RingBuffer(){
-    
+    size = 0;
+    elems = m_allocator::allocate(size);
 }
 
-class RingBuffer {
-public: 
-    RingBuffer(){
-
+RingBuffer::~RingBuffer(){
+    while( size > 0){
+        m_allocator::deallocate(RingBuffer::readBuffer());
     }
+}
 
-    ~RingBuffer(){
 
+T* RingBuffer::readBuffer(){
+    if( count <= 0) return NULL;
+    T* temp =  head;
+     head =  head + 1 %  size;
+     count --;
+
+    return temp;
+}
+
+void RingBuffer::writeBuffer(T *data){
+    if(data == NULL){
+        return;
     }
-
-    T* readBuffer(){
-        return T*;
+    if( count ==  size){
+        free_callback(RingBuffer::readBuffer());
     }
+    elems[( head +  count) %  size] = data;
+     count ++;
+}
 
-    void writeBuffer(T *data){
-
-    }
-
-    void const displayStatus() {
-
-    }
-};
+void const RingBuffer::displayStatus() {
+    //number of elems rel to size shown on the display
+}
