@@ -52,3 +52,6 @@ Mkfile.old
 dkms.conf
 
 .vscode
+
+# Vorgaben Ordner
+sp-w21-vorgaben-master/*
