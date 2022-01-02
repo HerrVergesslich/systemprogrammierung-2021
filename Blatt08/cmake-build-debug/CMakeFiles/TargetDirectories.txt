@@ -1,0 +1,3 @@
+H:/Studium/0_Semester3/Systemprogrammierung/Praktikum/Blatt08/cmake-build-debug/CMakeFiles/Blatt08.dir
+H:/Studium/0_Semester3/Systemprogrammierung/Praktikum/Blatt08/cmake-build-debug/CMakeFiles/edit_cache.dir
+H:/Studium/0_Semester3/Systemprogrammierung/Praktikum/Blatt08/cmake-build-debug/CMakeFiles/rebuild_cache.dir

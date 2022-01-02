@@ -70,7 +70,7 @@ void* cm_malloc(size_t needSize) {
 
                 run->id = nextId ++;
                 run->next = (memblock*) MAGIC_INT;
-                            
+                
                 return run+1;
             }            
         } else {

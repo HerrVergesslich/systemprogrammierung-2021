@@ -17,6 +17,7 @@ int cm_init(void);
 
 /**
  * Funktion zur Reservierung eines Speicherbereichs im (simulierten) Heap.
+ * @return Pointer zur freien Stelle im Heap.
  */
 void * cm_malloc(size_t);
 

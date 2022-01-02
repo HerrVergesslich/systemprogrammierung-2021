@@ -1,0 +1,5 @@
+# ninja log v5
+420	573	6628572877735027	Blatt08.exe	d41087474740c6b
+9	145	6628569959600099	CMakeFiles/Blatt08.dir/src/smartpointer/RefCounter.cpp.obj	cbb424832eed9412
+4	419	6628572876255011	CMakeFiles/Blatt08.dir/src/main.cpp.obj	82c806b645522103
+0	12	0	clean	80727070b5b16674
