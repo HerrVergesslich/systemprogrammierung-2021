@@ -62,7 +62,7 @@ TESTS_FLAG = ## not used in P5                          ## names of test executa
 
 ## Test sources
 ## TODO: Project specific: Adapt accordingly!
-smartpointer: smartpointerTests.cpp $(INCL_M)/smartpointer/NullPointerException.h $(INCL_V)/smartpointer/SmartPointer.h
+smartpointer: smartpointerTests.cpp $(INCL_M)/smartpointer/NullPointerException.h $(INCL_M)/smartpointer/SmartPointerImpl.h $(INCL_V)/smartpointer/SmartPointer.h
 ###############################################################################
 
 

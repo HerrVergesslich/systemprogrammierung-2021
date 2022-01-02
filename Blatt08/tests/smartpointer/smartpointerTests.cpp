@@ -3,7 +3,7 @@
 #include <string>
 #include <gtest/gtest.h>
 
-#include "smartpointer/SmartPointerImpl.h"
+#include "smartpointer/SmartPointer.h"
 #include "smartpointer/RefCounter.h"
 #include "smartpointer/NullPointerException.h"
 

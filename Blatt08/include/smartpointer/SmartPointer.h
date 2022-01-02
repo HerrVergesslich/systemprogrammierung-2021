@@ -8,6 +8,7 @@
 
 #include "smartpointer/RefCounter.h"
 
+
 /**
  * Template class to represent smart pointers (like std::shared_ptr)
  */

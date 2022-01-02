@@ -47,7 +47,7 @@ public:
     RefCounter &operator=(const RefCounter&) = delete;
 
 private:
-    unsigned int n;     ///< How many SmartPointerImpl share ownership of "our" object?
+    unsigned int n;     ///< How many SmartPointer share ownership of "our" object?
 };
 
 
