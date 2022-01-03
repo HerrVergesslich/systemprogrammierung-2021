@@ -73,4 +73,30 @@ void func(void){
 
 Wenn wir ein Objekt vom Typ `RAII` erstellen wird Speicher für unser privates Array freigeben. Dieser kann dann mittels des Dekonstruktors der Klasse wieder freigegeben werden.
 
-## Unsere Erfahrungen
+### PIMPL
+Das Idiom `PIMPL` (Pointer to Implementation) kapselt die Privaten Methoden und Variablen in einem eingenen Struct, um somit die Klassen, die den Header einbinden, nicht bei jeder internen Änderung neu kompiliert werden müssen. Außerdem könnne so die privaten Eigenschaften aus der Schnittstelle gezogen werden und müssen nicht in der Header öffentlich gemacht werden. 
+Dabei hat die Klasse einen Pointer auf die Implementation in einer Hilfsklasse, sodass bei Änderung von Privaten Methoden die abhängigen Klassen nicht noch einmal kompiliert werden müssen. 
+Mit dem PIMPL Idiom kann zum Beispiel 
+``` 
+class X
+{
+private:
+  C c;
+  D d;  
+} ;
+``` 
+in folgendes geändert werden, sodass sich die privaten Member ändern können, aber die Klasse nicht neu kompiliert werden muss.
+```
+class X
+{
+private:
+  struct XImpl;
+  XImpl* pImpl;       
+};
+
+struct X::XImpl
+{
+  C c;
+  D d;
+};
+```
