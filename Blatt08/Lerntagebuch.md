@@ -49,9 +49,9 @@ Ein Beispiel:
 ```
 class RAII{
     private:
-        std::vector<std:string> str;
+        std::string* str;
     public:
-        RAII(std::vector<std:string> str){
+        RAII(std::string* str){
             this->str = str;
         } 
 
