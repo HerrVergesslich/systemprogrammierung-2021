@@ -3,19 +3,21 @@ CXXFLAGS=--std=c++14
 CXXFLAGS+=-Wall
 CXXFLAGS += $(INCLUDES)
 INCLUDES = -I./include
-SRCDIR=./src/$(wildcard *.c)
-MAIN = ./src/main
+SRCDIR=./src/
+SRC = ./src/*.cpp
 
-all:
-	mkdir -p $(srcdir)/bin
-	$(CXX) $(CXXFLAGS) $(src) -o $(MAIN)$(SRCDIR)
+all: build	
+
+build:
+	mkdir -p $(SRCDIR)/bin
+	$(CXX) $(CXXFLAGS) -o $(SRCDIR)/bin/binary $(SRC)
 
 install: all
 	mkdir -p ./bin
-	cp $(MAIN)/bin/main ./bin/main
+	cp $(SRCDIR)/bin/binary ./bin/server
 
 run: install
-	$(MAIN)/bin/main 8080 daemon
+	./bin/server www-path 8080 daemon
 
 doc:
 	doxygen doxygen.config
@@ -23,7 +25,7 @@ doc:
 .PHONY: clean distclean
 
 clean:
-	rm -f $(MAIN)/bin -r
+	rm ./bin $(SRCDIR)/bin -rf
 
 distclean: clean
 	rm -fr ./bin ./lib ./doc
