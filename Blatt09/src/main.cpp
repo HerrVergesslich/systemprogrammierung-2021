@@ -9,6 +9,7 @@
 #include <stdlib.h>
 
 #include "server.h"
+#include "daemon.h"
 
 using namespace std;
 
@@ -20,6 +21,11 @@ int main(int argc, char** argv) {
     } else {
         PORT = 8080;
     }
+    DEBUG("ARGC: " << argc << " ARGV[2] '" << argv[2] << "'");
+    if(argc > 2 && argv[2] == "startDaemon") {
+        DEBUG("Daemon");
+    }
+        startDaemon();
 
     int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
 

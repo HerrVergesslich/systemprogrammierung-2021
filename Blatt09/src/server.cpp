@@ -382,10 +382,10 @@ string server::ShowDirectories::getDirectoryInfo(string path) {
     } else {
         return "-";
     }
-
     string page (INDEX_TABLE);
     page.replace(page.find("%DIR_NAME%"), 10, path.substr(8));
     page.replace(page.find("%ROWS%"), 6, rows);
+    closedir(dir);
     return page;
 }
 
